@@ -1,7 +1,8 @@
 // Перевод в Римскую систему (для чисел < 100)
 function toRoman(iValue) {
     var res = "";
-    var numbers = [50, 10, 9, 5, 4, 1];
+    if (iValue == 0) return "-";
+    var numbers = [50, 40, 10, 9, 5, 4, 1];
     for (i in numbers) {
         while (iValue >= numbers[i]) {
             iValue -= numbers[i];
@@ -51,6 +52,7 @@ dRoman[4] = 'IV';
 dRoman[5] = 'V';
 dRoman[9] = 'IX';
 dRoman[10] = 'X';
+dRoman[40] = 'XL';
 dRoman[50] = 'L';
 
 // Еще словарь
@@ -64,6 +66,17 @@ dASCII[':'] =
         '              ',
         '    (_)(_)    ',
         '    (_)(_)    ',
+        '              '
+    ];
+dASCII['-'] =
+    [
+        '              ',
+        '              ',
+        '              ',
+        ' (_)(_)(_)(_) ',
+        ' (_)(_)(_)(_) ',
+        '              ',
+        '              ',
         '              '
     ];
 dASCII['I'] =
